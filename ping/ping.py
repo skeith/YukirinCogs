@@ -29,11 +29,13 @@ class Pinger:
         """Grouped command to avoid conflict"""
         await send_cmd_help(ctx)
 
+    @checks.is_owner()        
     @group_cmd.command(hidden=True)
     async def ping(self):
         """Reply here"""
         await self.bot.say("What?")
 
+    @checks.is_owner()        
     @group_cmd.command(hidden=True, pass_context=True)
     async def pingt(self,ctx):
         """pseudo-ping time"""
