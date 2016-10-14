@@ -7,6 +7,7 @@ import datetime
 import time
 import aiohttp
 import asyncio
+from __main__ import send_cmd_help
 
 class Pinger:
     """Pinger commands."""
