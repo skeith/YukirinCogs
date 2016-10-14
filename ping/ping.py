@@ -1,13 +1,21 @@
 import discord
 from discord.ext import commands
+from __main__ import send_cmd_help
 from cogs.utils.chat_formatting import *
+from cogs.utils import checks
+from cogs.utils.dataIO import dataIO
+from cogs.utils import chat_formatting
 from random import randint
 from random import choice as randchoice
 import datetime
 import time
 import aiohttp
 import asyncio
-from __main__ import send_cmd_help
+import discord
+import inspect
+import subprocess
+import sys
+
 
 class Pinger:
     """Pinger commands."""
