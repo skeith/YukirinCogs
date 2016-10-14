@@ -24,6 +24,15 @@ class Pinger:
         """Reply here"""
         await self.bot.say("What?")
 
+    @group_cmd.command(hidden=True)
+    async def pingt(self,ctx):
+        """pseudo-ping time"""
+        channel = ctx.message.channel
+        t1 = time.perf_counter()
+        await self.bot.send_typing(channel)
+        t2 = time.perf_counter()
+        await self.bot.say("{}ms \n¯\_(ツ)_/¯".format(round((t2-t1)*1000)))        
+
 
 def setup(bot):
     n = Pinger(bot)
