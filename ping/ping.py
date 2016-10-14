@@ -25,7 +25,7 @@ class Pinger:
         """Reply here"""
         await self.bot.say("What?")
 
-    @group_cmd.command(hidden=True pass_context=True)
+    @group_cmd.command(hidden=True, pass_context=True)
     async def pingt(self,ctx):
         """pseudo-ping time"""
         channel = ctx.message.channel
