@@ -15,6 +15,7 @@ class Pinger:
     def __init__(self, bot):
         self.bot = bot
 
+    @checks.is_owner()
     @commands.group(name="tool", pass_context=True, invoke_without_command=True)
     async def group_cmd(self, ctx):
         """Grouped command to avoid conflict"""
