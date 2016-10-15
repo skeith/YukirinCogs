@@ -61,11 +61,11 @@ class Pinger:
         """Your Description"""
         search = "http://wohlsoft.ru/images/foxybot/randomfox.php"
         try:
-        async with aiohttp.get(search) as r:
-            result = await r.json()
-        await self.bot.say(result['file'])
-            except:
-        await self.bot.say("Couldnt Get An Image")
+            async with aiohttp.get(search) as r:
+                result = await r.json()
+            await self.bot.say(result['file'])
+        except:
+            await self.bot.say("Couldnt Get An Image")
 
 
 def setup(bot):
