@@ -11,7 +11,6 @@ import datetime
 import time
 import aiohttp
 import asyncio
-import discord
 import inspect
 import subprocess
 import sys
