@@ -1,0 +1,8 @@
+{
+    "AUTHOR" : "Yukirin",
+    "SHORT" : "Oshimen Card!",
+    "DESCRIPTION" : "Oshimen Card creation to show your Oshimen and your support for 48G",
+    "DISABLED" : false,
+    "NAME" : "Oshimen",
+    "INSTALL_MSG" : "Thank you for installing my Oshimen module. You create an Oshimen card with `[p]wota` then writes on it using `[p]write`. Type `[p]help Oshimen` for more information."
+}
