@@ -37,7 +37,7 @@ class Oshimen:
         else:
             data = discord.Embed(colour=discord.Color(0xffb6c1))
             data.add_field(
-                name="Ara~!", value="Yuihan said you already have an Oshimen card, {}.".format(user.mention))
+                name="Ara~!", value="Yuihan said you already have an Oshimen card, {}. Use {}write to add Oshimen onto your card".format(user.mention, ctx.prefix))
             await self.bot.say(embed=data)
 
     @commands.command(name="oshimen", pass_context=True, invoke_without_command=True, no_pm=True)
