@@ -35,17 +35,16 @@ class Oshimen:
                 name="Ohayou! :tada:",
                 value=("Your Oshimen card is") +
                 ("succesfully generated, {}.").format(user.name) +
-                ("Use {}write to start adding").format(ctx.prefix) +
+                (" Use {}write to start adding").format(ctx.prefix) +
                 ("your Oshimen on the card"))
             await self.bot.say(embed=data)
         else:
-            prefix = ctx.prefix
             data = discord.Embed(colour=discord.Color(0xffb6c1))
             data.add_field(
                 name="Ara~!",
-                value=("Yuihan said you already have")
+                value=("Yuihan said you already have") +
                 ("an Oshimen card, {}.").format(user.name) +
-                ("Use {}write to add Oshimen").format(prefix) +
+                (" Use {}write to add Oshimen").format(ctx.prefix) +
                 ("onto your card"))
             await self.bot.say(embed=data)
 
@@ -87,8 +86,8 @@ class Oshimen:
                 data.add_field(
                     name="Gomen ne~!",
                     value=("You'll need to apply for an Oshimen card to use") +
-                    ("this feature. Type {}wota to apply for").format(prefix) +
-                    (" one."))
+                    (" this feature. Type {}wota to ").format(prefix) +
+                    ("apply for one."))
                 await self.bot.say(embed=data)
         else:
             server = ctx.message.server
@@ -114,7 +113,7 @@ class Oshimen:
                 prefix = ctx.prefix
                 data = discord.Embed(colour=discord.Color(0xffb6c1))
                 data.add_field(name="Buuu~!",
-                               value=("Looks like {}").format(user.mention) +
+                               value=("Looks like {} ").format(user.mention) +
                                ("haven't apply for a card. Tell that poor ") +
                                ("soul to apply using {}wota").format(prefix))
                 await self.bot.say(embed=data)
@@ -147,7 +146,7 @@ class Oshimen:
             data.add_field(
                 name="Gomen ne~!",
                 value=("You'll need to apply for an Oshimen card to use") +
-                ("this feature. Type {}wota").format(prefix) +
+                (" this feature. Type {}wota").format(prefix) +
                 (" to apply for one."))
             await self.bot.say(embed=data)
         else:
@@ -179,7 +178,7 @@ class Oshimen:
             data.add_field(
                 name="Gomen ne~!",
                 value=("You'll need to apply for an Oshimen card to use") +
-                ("this feature. Type {}wota").format(prefix) +
+                (" this feature. Type {}wota").format(prefix) +
                 (" to apply for one."))
             await self.bot.say(embed=data)
         else:
