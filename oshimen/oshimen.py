@@ -33,17 +33,19 @@ class Oshimen:
             data = discord.Embed(colour=discord.Color(0xffb6c1))
             data.add_field(
                 name="Ohayou! :tada:",
-                value=("Your Oshimen card is succesfully generated, {}. ") +
-                ("Use {}write to start adding your Oshimen") +
-                ("on the card").format(user.mention, ctx.prefix))
+                value=("Your Oshimen card is") +
+                ("succesfully generated, {}.").format(user.mention) +
+                ("Use {}write to start adding").format(ctx.prefix) +
+                ("your Oshimen on the card"))
             await self.bot.say(embed=data)
         else:
             data = discord.Embed(colour=discord.Color(0xffb6c1))
             data.add_field(
                 name="Ara~!",
-                value=("Yuihan said you already have an Oshimen card, {}.") +
-                ("Use {}write to add Oshimen") +
-                ("onto your card").format(user.mention, ctx.prefix))
+                value=("Yuihan said you already have")
+                ("an Oshimen card, {}.").format(user.mention) +
+                ("Use {}write to add Oshimen").format(ctx.prefix) +
+                ("onto your card"))
             await self.bot.say(embed=data)
 
     @commands.command(name="oshimen", pass_context=True,
@@ -61,9 +63,10 @@ class Oshimen:
         if not user:
             user = ctx.message.author
             if user.id in self.oshi[server.id]:
-                data = discord.Embed(description=("**{}'s Oshimen Card") +
-                                     (" on {}**").format(user.name, server),
-                                     colour=discord.Color(0xffb6c1))
+                data = discord.Embed(
+                    description=("**{}'s Oshimen Card").format(user.mention) +
+                    (" on {}**").format(server),
+                    colour=discord.Color(0xffb6c1))
                 if "Oshimen" in self.oshi[server.id][user.id]:
                     oshimen = self.oshi[server.id][user.id]["Oshimen"]
                     data.add_field(name="Oshimen:", value=oshimen)
@@ -83,15 +86,16 @@ class Oshimen:
                 data.add_field(
                     name="Gomen ne~!",
                     value=("You'll need to apply for an Oshimen card to use") +
-                    ("this feature. Type {}wota to apply for") +
-                    (" one.").format(prefix))
+                    ("this feature. Type {}wota to apply for").format(prefix) +
+                    (" one."))
                 await self.bot.say(embed=data)
         else:
             server = ctx.message.server
             if user.id in self.oshi[server.id]:
-                data = discord.Embed(description=("**{}'s Oshimen Card") +
-                                     (" on {}**").format(user.name, server),
-                                     colour=discord.Color(0xffb6c1))
+                data = discord.Embed(
+                    description=("**{}'s Oshimen Card").format(user.mention) +
+                    (" on {}**").format(server),
+                    colour=discord.Color(0xffb6c1))
                 if "Oshimen" in self.oshi[server.id][user.id]:
                     oshimen = self.oshi[server.id][user.id]["Oshimen"]
                     data.add_field(name="Oshimen:", value=oshimen)
@@ -109,9 +113,9 @@ class Oshimen:
                 prefix = ctx.prefix
                 data = discord.Embed(colour=discord.Color(0xffb6c1))
                 data.add_field(name="Buuu~!",
-                               value=("Looks like {} haven't apply for a ") +
-                               ("card. Tell that poor soul to apply using") +
-                               (" {}wota").format(user.mention, prefix))
+                               value=("Looks like {}").format(user.mention) +
+                               ("haven't apply for a card. Tell that poor ") +
+                               ("soul to apply using {}wota").format(prefix))
                 await self.bot.say(embed=data)
 
     @commands.group(name="write", pass_context=True,
@@ -142,16 +146,16 @@ class Oshimen:
             data.add_field(
                 name="Gomen ne~!",
                 value=("You'll need to apply for an Oshimen card to use") +
-                ("this feature. Type {}wota to apply for") +
-                (" one.").format(prefix))
+                ("this feature. Type {}wota").format(prefix) +
+                (" to apply for one."))
             await self.bot.say(embed=data)
         else:
             self.oshi[server.id][user.id].update({"Oshimen": oshimen})
             dataIO.save_json(OJSON, self.oshi)
             data = discord.Embed(colour=discord.Color(0xffb6c1))
             data.add_field(name="Yatta! :sparkling_heart:",
-                           value=("I am sure {} is very thankful") +
-                           ("for your support").format(oshimen))
+                           value=("I am sure {} is very ").format(oshimen) +
+                           ("thankful for your support"))
             await self.bot.say(embed=data)
 
     @write.command(pass_context=True, no_pm=True)
@@ -174,8 +178,8 @@ class Oshimen:
             data.add_field(
                 name="Gomen ne~!",
                 value=("You'll need to apply for an Oshimen card to use") +
-                ("this feature. Type {}wota to apply for") +
-                (" one.").format(prefix))
+                ("this feature. Type {}wota").format(prefix) +
+                (" to apply for one."))
             await self.bot.say(embed=data)
         else:
             self.oshi[server.id][user.id].update(
@@ -184,8 +188,8 @@ class Oshimen:
             data = discord.Embed(colour=discord.Color(0xffb6c1))
             data.add_field(name="Arigatou! :bow:",
                            value=("We are very grateful of your support. ") +
-                           ("The support type {} ") +
-                           ("has been saved").format(support_type))
+                           ("The support type {} ").format(support_type) +
+                           ("has been saved"))
             await self.bot.say(embed=data)
 
 
