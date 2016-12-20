@@ -39,12 +39,13 @@ class Oshimen:
                 ("your Oshimen on the card"))
             await self.bot.say(embed=data)
         else:
+            prefix = ctx.prefix
             data = discord.Embed(colour=discord.Color(0xffb6c1))
             data.add_field(
                 name="Ara~!",
                 value=("Yuihan said you already have")
                 ("an Oshimen card, {}.").format(user.name) +
-                ("Use {}write to add Oshimen").format(ctx.prefix) +
+                ("Use {}write to add Oshimen").format(prefix) +
                 ("onto your card"))
             await self.bot.say(embed=data)
 
