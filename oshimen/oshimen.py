@@ -34,7 +34,7 @@ class Oshimen:
             data.add_field(
                 name="Ohayou! :tada:",
                 value=("Your Oshimen card is") +
-                ("succesfully generated, {}.").format(user) +
+                ("succesfully generated, {}.").format(user.name) +
                 ("Use {}write to start adding").format(ctx.prefix) +
                 ("your Oshimen on the card"))
             await self.bot.say(embed=data)
@@ -43,7 +43,7 @@ class Oshimen:
             data.add_field(
                 name="Ara~!",
                 value=("Yuihan said you already have")
-                ("an Oshimen card, {}.").format(user) +
+                ("an Oshimen card, {}.").format(user.name) +
                 ("Use {}write to add Oshimen").format(ctx.prefix) +
                 ("onto your card"))
             await self.bot.say(embed=data)
@@ -64,7 +64,7 @@ class Oshimen:
             user = ctx.message.author
             if user.id in self.oshi[server.id]:
                 data = discord.Embed(
-                    description=("**{}'s Oshimen Card").format(user) +
+                    description=("**{}'s Oshimen Card").format(user.name) +
                     (" on {}**").format(server),
                     colour=discord.Color(0xffb6c1))
                 if "Oshimen" in self.oshi[server.id][user.id]:
@@ -93,7 +93,7 @@ class Oshimen:
             server = ctx.message.server
             if user.id in self.oshi[server.id]:
                 data = discord.Embed(
-                    description=("**{}'s Oshimen Card").format(user) +
+                    description=("**{}'s Oshimen Card").format(user.name) +
                     (" on {}**").format(server),
                     colour=discord.Color(0xffb6c1))
                 if "Oshimen" in self.oshi[server.id][user.id]:
@@ -113,7 +113,7 @@ class Oshimen:
                 prefix = ctx.prefix
                 data = discord.Embed(colour=discord.Color(0xffb6c1))
                 data.add_field(name="Buuu~!",
-                               value=("Looks like {}").format(user) +
+                               value=("Looks like {}").format(user.mention) +
                                ("haven't apply for a card. Tell that poor ") +
                                ("soul to apply using {}wota").format(prefix))
                 await self.bot.say(embed=data)
