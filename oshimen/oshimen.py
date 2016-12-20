@@ -94,6 +94,7 @@ class Oshimen:
 
                 await self.bot.say(embed=data)
             else:
+                prefix = ctx.prefix
                 data = discord.Embed(colour=discord.Color(0xffb6c1))
                 data.add_field(name="Buuu~!", value="Looks like {} haven't apply for a card. Tell that poor soul to apply using {}wota".format(
                     user.mention, prefix))
