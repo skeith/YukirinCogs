@@ -32,7 +32,7 @@ class Oshimen:
             dataIO.save_json(OJSON, self.oshi)
             data = discord.Embed(colour=discord.Color(0xffb6c1))
             data.add_field(
-                name="Ohayou! :tada:", value="Your Oshimen card is succesfully generated, {}. Use {}write to start adding your Oshimen on the card".format(user.mention, prefix))
+                name="Ohayou! :tada:", value="Your Oshimen card is succesfully generated, {}. Use {}write to start adding your Oshimen on the card".format(user.mention, ctx.prefix))
             await self.bot.say(embed=data)
         else:
             data = discord.Embed(colour=discord.Color(0xffb6c1))
