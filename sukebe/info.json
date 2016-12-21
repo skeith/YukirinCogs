@@ -1,0 +1,8 @@
+{
+    "AUTHOR" : "Yukirin",
+    "SHORT" : "Sukebe",
+    "DESCRIPTION" : "Visit Paruru sensei and check your Sukebe level",
+    "DISABLED" : false,
+    "NAME" : "Sukebe",
+    "INSTALL_MSG" : "Thank you for installing my Sukebe module. Usage `[p]sukebe <user>`."
+}
