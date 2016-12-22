@@ -200,9 +200,10 @@ def check_folder():
 
 
 def check_file():
+    nai = {}
     if not dataIO.is_valid_json(OJSON):
         print("Creating empty json file")
-        dataIO.save_json(OJSON)
+        dataIO.save_json(OJSON, nai)
 
 
 def setup(bot):
