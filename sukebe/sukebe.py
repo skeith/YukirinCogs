@@ -17,7 +17,7 @@ class Sukebe:
 
         random.seed(user.id,)
         x = ":fire:" * random.randint(0, 10)
-        await self.bot.say("Sukebe-ness: " + x)
+        await self.bot.say("{}'s Sukebe-ness is : ".format(user.mention) + x)
 
 
 def setup(bot):
