@@ -10,12 +10,12 @@ class Sukebe:
         self.bot = bot
 
     @commands.command()
-    async def sukebe(self, user: discord.Member):
+    async def sukebe(self, ctx, user: discord.Member):
         """Detects user's Sukebe-ness.
 
         157% accurate!"""
 
-        random.seed(user.id,)
+        random.seed(int(user.id) + int(ctx.message.timestamp.timestamp()),)
         x = ":fire:" * random.randint(0, 10)
         await self.bot.say("{}'s Sukebe-ness is : ".format(user.mention) + x)
 
