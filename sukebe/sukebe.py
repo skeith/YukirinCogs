@@ -16,8 +16,8 @@ class Sukebe:
         157% accurate!"""
 
         random.seed(int(user.id) % int(ctx.message.timestamp.timestamp()),)
-        x = ":fire:" * random.randint(0, 10)
-        await self.bot.say("{}'s Sukebe-ness is : ".format(user.mention) + x)
+        x = ":fire:" * random.randint(1, 10)
+        await self.bot.say("{}'s Sukebe-ness is : ".format(user.name) + x)
 
 
 def setup(bot):
