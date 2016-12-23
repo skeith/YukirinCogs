@@ -9,7 +9,7 @@ class Sukebe:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(pass_context=True)
     async def sukebe(self, ctx, user: discord.Member):
         """Detects user's Sukebe-ness.
 
