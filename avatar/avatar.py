@@ -14,10 +14,11 @@ class Avatar:
 
         THAT SIMPLE!"""
         author = ctx.message.author
-        avatar = user.avatar_url
 
         if not user:
             user = author
+
+        avatar = user.avatar_url
         await self.bot.say("{}'s Avatar URL : {}".format(user.name, avatar))
 
 
