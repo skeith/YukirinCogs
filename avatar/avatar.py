@@ -9,7 +9,7 @@ class Avatar:
         self.bot = bot
 
     @commands.command(pass_context=True)
-    async def Avatar(self, ctx, user: discord.Member):
+    async def avatar(self, ctx, user: discord.Member):
         """Get user's avatar URL.
 
         THAT SIMPLE!"""
