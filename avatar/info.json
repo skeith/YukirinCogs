@@ -1,0 +1,8 @@
+{
+    "AUTHOR" : "Yukirin",
+    "SHORT" : "Avatar",
+    "DESCRIPTION" : "Simply return user's avatar url",
+    "DISABLED" : false,
+    "NAME" : "Avatar",
+    "INSTALL_MSG" : "Thank you for installing my Avatar module. Type `[p]help Avatar` for more information."
+}
