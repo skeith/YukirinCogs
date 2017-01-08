@@ -1,0 +1,8 @@
+{
+    "AUTHOR" : "Yukirin",
+    "SHORT" : "Modified version of Poll. Use a 5 minutes poll period",
+    "DESCRIPTION" : "Modified Poll",
+    "DISABLED" : false,
+    "NAME" : "Pollplus",
+    "INSTALL_MSG" : "Thank you for installing my Pollplus module."
+}

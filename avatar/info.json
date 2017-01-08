@@ -1,6 +1,6 @@
 {
     "AUTHOR" : "Yukirin",
-    "SHORT" : "Avatar",
+    "SHORT" : "Get user's Avatar URL",
     "DESCRIPTION" : "Simply return user's avatar url",
     "DISABLED" : false,
     "NAME" : "Avatar",
