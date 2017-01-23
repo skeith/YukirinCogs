@@ -10,7 +10,7 @@ class DotRed:
     @commands.command(alias="find", pass_context=True)
     async def dotred(self, ctx, *, keyword):
         """Search cogs.red
-        I don't know why I make this"""
+        I don't know why I made this"""
 
         await self.bot.say("http://cogs.red/cogs?search={}".format(keyword))
 
