@@ -1,0 +1,8 @@
+{
+    "AUTHOR" : "Yukirin",
+    "SHORT" : "cogs.red search",
+    "DESCRIPTION" : "Searh cogs.red for supplied keyword",
+    "DISABLED" : false,
+    "NAME" : "DotRed",
+    "INSTALL_MSG" : "Thank you for installing my DotRed module. Seriously, this is a rather useless cog."
+}
