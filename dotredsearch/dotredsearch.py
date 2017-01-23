@@ -7,7 +7,7 @@ class Dotred:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(alias="find", pass_context=True)
+    @commands.command(aliases=["find"], pass_context=True)
     async def dotred(self, ctx, *, keyword):
         """Search cogs.red
         I don't know why I made this"""
