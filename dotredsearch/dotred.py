@@ -1,8 +1,8 @@
 from discord.ext import commands
 
 
-class DotRed:
-    """Serach cogs.red. A really simple cog."""
+class Dotred:
+    """Search cogs.red. A really simple cog."""
 
     def __init__(self, bot):
         self.bot = bot
@@ -16,4 +16,4 @@ class DotRed:
 
 
 def setup(bot):
-    bot.add_cog(DotRed(bot))
+    bot.add_cog(Dotred(bot))
