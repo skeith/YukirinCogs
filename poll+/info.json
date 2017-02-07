@@ -4,5 +4,6 @@
     "DESCRIPTION" : "Modified Poll",
     "DISABLED" : false,
     "NAME" : "Pollplus",
-    "INSTALL_MSG" : "Thank you for installing my Pollplus module."
+    "INSTALL_MSG" : "Thank you for installing my Pollplus module.",
+    "TAGS" : ["poll", "modified"]
 }

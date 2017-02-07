@@ -4,5 +4,6 @@
     "DESCRIPTION" : "Searh cogs.red for supplied keyword",
     "DISABLED" : false,
     "NAME" : "DotRed",
-    "INSTALL_MSG" : "Thank you for installing my DotRed module. Seriously, this is a rather useless cog."
+    "INSTALL_MSG" : "Thank you for installing my DotRed module. Seriously, this is a rather useless cog.",
+    "TAGS" : ["search", "redportal", "cogs"]
 }

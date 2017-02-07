@@ -4,5 +4,6 @@
     "DESCRIPTION" : "Simply return user's avatar url",
     "DISABLED" : false,
     "NAME" : "Avatar",
-    "INSTALL_MSG" : "Thank you for installing my Avatar module. Type `[p]help Avatar` for more information."
+    "INSTALL_MSG" : "Thank you for installing my Avatar module. Type `[p]help Avatar` for more information.",
+    "TAGS" : ["avatar"]
 }
