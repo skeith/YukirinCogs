@@ -17,8 +17,8 @@ class Pollplus:
     async def pollp(self, ctx, *text):
         """Starts/stops a poll
         Usage example:
-        poll Is this a poll?;Yes;No;Maybe
-        poll stop
+        pollp Is this a poll?;Yes;No;Maybe
+        pollp stop
 
         This is modified poll with 5 minutes poll period."""
         message = ctx.message
@@ -68,7 +68,7 @@ class NewPoll():
         self.author = message.author.id
         self.client = main.bot
         self.poll_sessions = main.poll_sessions
-        msg = message.content[6:]
+        msg = message.content[7:]
         msg = msg.split(";")
         if len(msg) < 2:  # Needs at least one question and 2 choices
             self.valid = False
