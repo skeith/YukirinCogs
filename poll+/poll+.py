@@ -68,7 +68,7 @@ class NewPoll():
         self.author = message.author.id
         self.client = main.bot
         self.poll_sessions = main.poll_sessions
-        msg = message.content[8:]
+        msg = message.content[7:]
         msg = msg.split(";")
         if len(msg) < 2:  # Needs at least one question and 2 choices
             self.valid = False
