@@ -7,8 +7,14 @@ PATH = 'data/oshimen/'
 OJSON = PATH + 'oshimen.json'
 
 
+def isascii(s):
+    return len(s) == len(s.encode())
+
+
 class Oshimen:
     """Oshimen Card"""
+    __author__ = "Yukirin"
+    __version__ = "0.2.2"
 
     def __init__(self, bot):
         self.bot = bot
@@ -138,6 +144,12 @@ class Oshimen:
 
         if server.id not in self.oshi:
             self.oshi[server.id] = {}
+        else:
+            pass
+
+        if not isascii(oshimen):
+            await self.bot.say("Oshimens must be written in ASCII characters")
+            return
         else:
             pass
 
