@@ -1,0 +1,9 @@
+{
+    "AUTHOR" : "Yukirin",
+    "SHORT" : "Miscellanous RND and fun commands!",
+    "DESCRIPTION" : "Miscellanous RND and fun commands!",
+    "DISABLED" : false,
+    "NAME" : "Nandeyanen",
+    "INSTALL_MSG" : "Thank you for installing my Nandeyanen module. Usage help `[p]help Nandeyanen`.",
+    "TAGS" : ["random", "fun"]
+}
