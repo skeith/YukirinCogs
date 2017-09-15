@@ -84,7 +84,7 @@ class Nandeyanen:
 
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
-    async def cats(self):
+    async def kitty(self):
         """The cure of boredom"""
         try:
             async with aiohttp.get(self.caturl) as r:
