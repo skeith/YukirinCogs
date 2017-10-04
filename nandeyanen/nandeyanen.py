@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from random import choice as rnd
+from random import choice as rnd, randint
 import os
 import aiohttp
 
@@ -36,6 +36,7 @@ caturl = "http://random.cat/meow"
 foxurl = "http://wohlsoft.ru/images/foxybot/randomfox.php"
 dogurl = "https://dog.ceo/api/breeds/image/random"
 
+
 class Nandeyanen:
     """Nandeyanen ~!"""
 
@@ -56,16 +57,26 @@ class Nandeyanen:
         await self.bot.upload(gifPath)
 
     @commands.command(pass_context=True)
-    async def f(self, ctx, *, user: discord.Member=None):
+    # async def f(self, ctx, *, user: discord.Member=None):
+    async def f(self, ctx, *, user):
         """Pay respects.
 
         THAT SIMPLE!"""
         author = ctx.message.author
+        if user is not None:
+            try:
+                member = converter.MemberConverter(ctx, user).convert()
+                await self.bot.say("{} has paid their respect for {} {}".format(author.name, member.mention, rnd(self.fmoji)))
 
-        if not user:
-            await self.bot.say("{} has paid their respect {}".format(author.name, rnd(self.fmoji)))
+            except errors.BadArgument:
+                await self.bot.say("{} has paid their respect for {} {}".format(author.name, user, rnd(self.fmoji)))
         else:
-            await self.bot.say("{} has paid their respect for {} {}".format(author.name, user.name, rnd(self.fmoji)))
+            await self.bot.send_cmd_help(ctx)
+
+        # if not user:
+            # await self.bot.say("{} has paid their respect {}".format(author.name, rnd(self.fmoji)))
+        # else:
+            # await self.bot.say("{} has paid their respect for {} {}".format(author.name, user.name, rnd(self.fmoji)))
 
     @commands.command(pass_context=True)
     @commands.cooldown(6, 60, commands.BucketType.user)
