@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
-from random import choice as rnd, randint
+from discord.ext.commands import errors, converter
+from random import choice as rnd
 import os
 import aiohttp
 
