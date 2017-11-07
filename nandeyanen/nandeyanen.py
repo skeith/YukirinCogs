@@ -1,9 +1,12 @@
 import discord
 from discord.ext import commands
 from discord.ext.commands import errors, converter
-from random import choice as rnd
+from random import randint, choice as rnd
 import os
 import aiohttp
+
+version = "2.1.3"
+author = "Yukirin"
 
 defmoji = [
     ":heart:",
@@ -36,6 +39,7 @@ patlist = [
 caturl = "http://random.cat/meow"
 foxurl = "http://wohlsoft.ru/images/foxybot/randomfox.php"
 dogurl = "https://dog.ceo/api/breeds/image/random"
+qturl = "http://inspirobot.me/api?generate=true"
 
 
 class Nandeyanen:
@@ -48,6 +52,8 @@ class Nandeyanen:
         self.caturl = caturl
         self.foxurl = foxurl
         self.dogurl = dogurl
+        self.qturl = qturl
+        self.version = version
 
     async def attach(self, msg, folder):
         if msg:
@@ -56,6 +62,18 @@ class Nandeyanen:
         fileList = os.listdir(folderPath)
         gifPath = folderPath + "/" + fileList[randint(0, len(fileList) - 1)]
         await self.bot.upload(gifPath)
+
+    @commands.group(name="nande", pass_context=True,
+                    invoke_without_command=True, no_pm=True)
+    async def nande(self, ctx):
+        """Nandeyanen utility command"""
+        await self.bot.send_cmd_help(ctx)
+
+    @nande.command(name="version", no_pm=True)
+    async def _version_nandeyanen(self):
+        """Show Nandeyanen version"""
+        ver = self.version
+        await self.bot.say("You are running on Nandeyanen version {}".format(ver))
 
     @commands.command(pass_context=True)
     # async def f(self, ctx, *, user: discord.Member=None):
@@ -106,7 +124,7 @@ class Nandeyanen:
             # await self.bot.say(result['file'])
             await self.bot.say(embed=cat)
         except:
-            await self.bot.say("Couldnt Get An Image")
+            await self.bot.say("Couldn't Get An Image")
 
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
@@ -120,7 +138,7 @@ class Nandeyanen:
             # await self.bot.say(result['file'])
             await self.bot.say(embed=fox)
         except:
-            await self.bot.say("Couldnt Get An Image")
+            await self.bot.say("Couldn't Get An Image")
 
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
@@ -134,7 +152,21 @@ class Nandeyanen:
             # await self.bot.say(result['file'])
             await self.bot.say(embed=dog)
         except:
-            await self.bot.say("Couldnt Get An Image")
+            await self.bot.say("Couldn't Get An Image")
+
+    @commands.command()
+    @commands.cooldown(6, 60, commands.BucketType.user)
+    async def rquote(self):
+        """To make human pointless existence worth"""
+        try:
+            async with aiohttp.get(self.qturl) as r:
+                result = await r.text()
+            qt = discord.Embed(description="\u2063", color=discord.Color(0xffb6c1))
+            qt.set_image(url=result)
+            await self.bot.say(embed=qt)
+        except:
+            await self.bot.say("Couldn't Get An Image")
 
 def setup(bot):
     bot.add_cog(Nandeyanen(bot))
+    
