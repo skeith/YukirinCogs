@@ -19,6 +19,8 @@ class Avatar:
             user = author
 
         avatar = user.avatar_url
+        avatar = avatar.replace('webp', 'png')
+        avatar = re.sub("\?size\=\d+$", "", avatar)
         await self.bot.say("{}'s Avatar URL : {}".format(user.name, avatar))
 
 
