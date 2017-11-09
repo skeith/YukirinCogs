@@ -3,6 +3,15 @@ from discord.ext import commands
 import re
 
 
+def process_avatar(url):
+    if ".gif" in url:
+        new_url = re.sub("\?size\=\d+$", "", url)
+        return new_url
+    else:
+        new_url = url.replace('.webp', '.png')
+        return new_url
+
+
 class Avatar:
     """Get user's avatar URL."""
 
@@ -11,18 +20,15 @@ class Avatar:
 
     @commands.command(pass_context=True)
     async def avatar(self, ctx, *, user: discord.Member=None):
-        """Get user's avatar URL.
-
-        THAT SIMPLE!"""
+        """Returns user avatar URL."""
         author = ctx.message.author
 
         if not user:
             user = author
 
-        avatar = user.avatar_url
-        avatar = avatar.replace('webp', 'png')
-        avatar = re.sub("\?size\=\d+$", "", avatar)
-        await self.bot.say("{}'s Avatar URL : {}".format(user.name, avatar))
+        u = user.avatar_url
+        url = process_avatar(u)
+        await self.bot.say("{}'s Avatar URL : {}".format(user.name, url))
 
 
 def setup(bot):
