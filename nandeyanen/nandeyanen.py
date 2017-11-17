@@ -70,6 +70,10 @@ class Nandeyanen:
         self.dogurl = dogurl
         self.qturl = qturl
         self.version = version
+        self.session = aiohttp.ClientSession()
+
+    def __unload(self):
+        self.session.close()
 
     async def attach(self, msg, folder):
         if msg:
@@ -90,6 +94,19 @@ class Nandeyanen:
         """Show Nandeyanen version"""
         ver = self.version
         await self.bot.say("You are running on Nandeyanen version {}".format(ver))
+
+    # @nande.command(name="debug", no_pm=True)
+    # async def _debug_nandeyanen(self):
+    #     """Show Nandeyanen debugging"""
+    #     async with self.session.get(self.caturl) as r:
+    #             a = await r.json()
+    #             print(a)
+    #     async with self.session.get(self.dogurl) as r:
+    #             b = await r.json()
+    #             print(b)
+    #     async with self.session.get(self.foxurl) as r:
+    #             c = await r.json()
+    #             print(c)
 
     @commands.command(pass_context=True)
     # async def f(self, ctx, *, user: discord.Member=None):
@@ -133,7 +150,7 @@ class Nandeyanen:
     async def kitty(self):
         """The cure of boredom."""
         try:
-            async with aiohttp.get(self.caturl) as r:
+            async with self.session.get(self.caturl) as r:
                 result = await r.json()
             cat = discord.Embed(description="\u2063", color=discord.Color(0xffb6c1))
             cat.set_image(url=result['file'])
@@ -147,7 +164,7 @@ class Nandeyanen:
     async def fox(self):
         """Another cure of boredom."""
         try:
-            async with aiohttp.get(self.foxurl) as r:
+            async with self.session.get(self.foxurl) as r:
                 result = await r.json()
             fox = discord.Embed(description="\u2063", color=discord.Color(0xffb6c1))
             fox.set_image(url=result['file'])
@@ -161,8 +178,9 @@ class Nandeyanen:
     async def doggo(self):
         """Wait! There is more cure of boredom?"""
         try:
-            async with aiohttp.get(self.dogurl) as r:
+            async with self.session.get(self.dogurl) as r:
                 result = await r.json()
+                print(result)
             dog = discord.Embed(description="\u2063", color=discord.Color(0xffb6c1))
             dog.set_image(url=result['message'])
             # await self.bot.say(result['file'])
@@ -175,7 +193,7 @@ class Nandeyanen:
     async def rquote(self):
         """To make human pointless existence worth."""
         try:
-            async with aiohttp.get(self.qturl) as r:
+            async with self.session.get(self.qturl) as r:
                 result = await r.text()
             qt = discord.Embed(description="\u2063", color=discord.Color(0xffb6c1))
             qt.set_image(url=result)
