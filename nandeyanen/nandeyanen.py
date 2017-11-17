@@ -4,9 +4,18 @@ from discord.ext.commands import errors, converter
 from random import randint, choice as rnd
 import os
 import aiohttp
+import asyncio
+from PIL import Image
+try:
+    from robohash import Robohash as Rh
+    Robo = True
+except ImportError:
+    Robo = False
+
 
 version = "2.1.3"
 author = "Yukirin"
+PATH = 'data/nande/'
 
 defmoji = [
     ":heart:",
@@ -34,6 +43,13 @@ patlist = [
     "https://i.imgur.com/5448px6.gif",
     "https://i.imgur.com/4WJRAGw.gif",
     "https://i.imgur.com/v1sSh5r.gif"
+]
+
+comments = [
+    "You are not too ugly, aren't you?",
+    "Oh GOD, why do I have to draw you?",
+    "This is the last time I will draw someone!",
+    "Finishing..."
 ]
 
 caturl = "http://random.cat/meow"
@@ -115,7 +131,7 @@ class Nandeyanen:
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
     async def kitty(self):
-        """The cure of boredom"""
+        """The cure of boredom."""
         try:
             async with aiohttp.get(self.caturl) as r:
                 result = await r.json()
@@ -129,7 +145,7 @@ class Nandeyanen:
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
     async def fox(self):
-        """Another cure of boredom"""
+        """Another cure of boredom."""
         try:
             async with aiohttp.get(self.foxurl) as r:
                 result = await r.json()
@@ -157,7 +173,7 @@ class Nandeyanen:
     @commands.command()
     @commands.cooldown(6, 60, commands.BucketType.user)
     async def rquote(self):
-        """To make human pointless existence worth"""
+        """To make human pointless existence worth."""
         try:
             async with aiohttp.get(self.qturl) as r:
                 result = await r.text()
@@ -167,5 +183,44 @@ class Nandeyanen:
         except:
             await self.bot.say("Couldn't Get An Image")
 
+    @commands.command(pass_context=True)
+    @commands.cooldown(2, 60, commands.BucketType.channel)
+    async def drawme(self, ctx, *, set):
+        """Generate a drawing of yourself.
+           140% accurately drawn
+
+           Acceptable set options/arguments : any, set1, set2, set3, set4"""
+        channel = ctx.message.channel
+        hash = ctx.message.author.id
+        drawed = PATH + "generated-" + hash + ".png"
+        sets = ['any', 'set1', 'set2', 'set3', 'set4']
+        if not Robo:
+            await self.bot.say("Robohash is not installed. Install it using `pip3 install robohash`")
+        else:
+            pass
+        if set not in sets:
+            await self.bot.say("Incorrect options!\nAcceptable options are : any, set1, set2, set3, or set4")
+        else:
+            x = Rh(hash)
+            x.assemble(roboset=set)
+            with open(PATH + "generated-" + hash + ".png", "wb") as f:
+                x.img.save(f, format="png")
+            a = await self.bot.say("Drawing...")
+            await asyncio.sleep(2)
+            b = await self.bot.say(rnd(comments))
+            await self.bot.delete_message(a)
+            await asyncio.sleep(1)
+            await self.bot.delete_message(b)
+            await asyncio.sleep(1)
+            await self.bot.send_file(channel, drawed)
+
+
+def check_folder():
+    if not os.path.exists(PATH):
+        print("Creating data/nande folder...")
+        os.makedirs(PATH)
+
+
 def setup(bot):
+    check_folder()
     bot.add_cog(Nandeyanen(bot))
