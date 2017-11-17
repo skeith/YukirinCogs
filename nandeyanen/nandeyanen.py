@@ -13,7 +13,7 @@ except ImportError:
     Robo = False
 
 
-version = "2.1.3"
+version = "2.7.0"
 author = "Yukirin"
 PATH = 'data/nande/'
 
