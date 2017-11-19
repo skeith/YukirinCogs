@@ -4,6 +4,7 @@
     "DESCRIPTION" : "Miscellanous RND and fun commands!",
     "DISABLED" : false,
     "NAME" : "Nandeyanen",
+    "REQUIREMENTS": ["PIL", "robohash"],
     "INSTALL_MSG" : "Thank you for installing my Nandeyanen module. Usage help `[p]help Nandeyanen`.",
     "TAGS" : ["random", "fun"]
 }
