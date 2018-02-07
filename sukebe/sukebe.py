@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import random
+import datetime
 
 
 class Sukebe:
@@ -15,7 +16,12 @@ class Sukebe:
 
         157% accurate!"""
 
-        random.seed(int(user.id) % int(ctx.message.timestamp.timestamp()),)
+        a = ctx.message.timestamp
+        b = a.strftime("%Y-%m-%d %H:%M:%S.%f0")
+        c = datetime.datetime.strptime(b[:7], '%Y-%m')
+        d = c.timestamp()
+
+        random.seed(int(user.id) % int(d),)
         x = ":fire:" * random.randint(1, 10)
         await self.bot.say("{}'s Sukebe-ness is : ".format(user.name) + x)
 
