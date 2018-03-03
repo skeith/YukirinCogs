@@ -1,0 +1,9 @@
+{
+    "AUTHOR" : "Eslyium",
+    "SHORT" : "Allows You to Slap People",
+    "DESCRIPTION" : "A Fun Cog That Allows You To Slap People With Items.",
+    "DISABLED" : false,
+    "NAME" : "Slap",
+    "TAGS" : ["slap"],
+    "INSTALL_MSG" : "Congrats On Downloading The Slap Cog!"
+}

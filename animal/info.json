@@ -1,0 +1,10 @@
+{
+    "AUTHOR" : "Eslyium",
+    "SHORT" : "Posts Cats & Pugs",
+    "DESCRIPTION" : "Posts Cats & Pugs from API Sites.",
+    "DISABLED" : false,
+    "NAME" : "Animal",
+    "REQUIREMENTS" : ["bs4"],
+    "TAGS" : ["cats", "pugs"],
+    "INSTALL_MSG" : "Congrats On Downloading The Animal Cog!"
+}
