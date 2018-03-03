@@ -12,3 +12,4 @@ You can reuse my codes for your project/work as long as you give proper credit
 
 ## Credits
 - TwentySix for the sukebe cog
+- Eslyium for the original animal, doujin, feed and slap cog. These cogs were adopted with permission.
