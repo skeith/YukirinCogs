@@ -1,0 +1,10 @@
+{
+    "AUTHOR" : "Yukirin",
+    "SHORT" : "Public Display of Affection",
+    "DESCRIPTION" : "Express your Public Display of Affection to other users",
+    "DISABLED" : false,
+    "NAME" : "PDA",
+    "REQUIREMENTS": [],
+    "INSTALL_MSG" : "Thank you for installing my PDA module. Usage help `[p]help PDA`.",
+    "TAGS" : ["random", "fun", "affection", "love"]
+}
