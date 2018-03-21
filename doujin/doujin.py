@@ -8,7 +8,7 @@ class Doujin:
 
     def __init__(self, bot):
         self.bot = bot
-	self.session = self.bot.http.session
+        self.session = self.bot.http.session
 
     @commands.group(pass_context=True)
     async def doujin(self, ctx):
