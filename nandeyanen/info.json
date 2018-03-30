@@ -1,10 +1,10 @@
 {
     "AUTHOR" : "Yukirin",
-    "SHORT" : "Miscellanous RND and fun commands!",
-    "DESCRIPTION" : "Miscellanous RND and fun commands!",
+    "SHORT" : "Gaki no Tsukai fun commands!",
+    "DESCRIPTION" : "This cog/module adds Gaki no Tsukai miscellaneous fun/rnd commands !",
     "DISABLED" : false,
     "NAME" : "Nandeyanen",
-    "REQUIREMENTS": ["PIL", "robohash"],
+    "REQUIREMENTS": [],
     "INSTALL_MSG" : "Thank you for installing my Nandeyanen module. Usage help `[p]help Nandeyanen`.",
-    "TAGS" : ["random", "fun"]
+    "TAGS" : ["random", "fun", "gaki", "gaki no tsukai"]
 }
