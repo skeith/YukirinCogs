@@ -13,7 +13,7 @@ class Animal:
     @commands.command()
     async def cats(self):
         """Shows a cat"""
-        search = "http://random.cat/meow"
+        search = "http://aws.random.cat/meow"
         try:
             async with self.session.get(search) as r:
                 result = await r.json()
