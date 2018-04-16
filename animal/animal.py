@@ -26,7 +26,7 @@ class Animal:
         """Throws a cat bomb!
 
         Defaults to 5"""
-        search = "http://random.cat/meow"
+        search = "http://aws.random.cat/meow"
         results = []
         if amount > 10 or amount < 1:
             amount = 5
