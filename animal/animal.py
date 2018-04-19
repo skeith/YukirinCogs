@@ -13,11 +13,11 @@ class Animal:
     @commands.command()
     async def cats(self):
         """Shows a cat"""
-        search = "http://aws.random.cat/meow"
+        search = "https://nekos.life/api/v2/img/meow"
         try:
             async with self.session.get(search) as r:
                 result = await r.json()
-            await self.bot.say(result['file'])
+            await self.bot.say(result['url'])
         except:
             await self.bot.say("Couldnt Get An Image")
 
@@ -26,7 +26,7 @@ class Animal:
         """Throws a cat bomb!
 
         Defaults to 5"""
-        search = "http://aws.random.cat/meow"
+        search = "https://nekos.life/api/v2/img/meow"
         results = []
         if amount > 10 or amount < 1:
             amount = 5
@@ -34,7 +34,7 @@ class Animal:
             for x in range(0,amount):
                 async with self.session.get(search) as r:
                     api_result = await r.json()
-                    results.append(api_result['file'])
+                    results.append(api_result['url'])
             await self.bot.say("\n".join(results)) # \o/ Thanks irdumb <3
         except:
             await self.bot.say("Couldnt Get An Image")
