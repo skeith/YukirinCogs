@@ -25,8 +25,9 @@ class Avatar:
         if not user:
             user = author
 
-        u = user.avatar_url
-        url = process_avatar(u)
+        u = await self.bot.get_user_info(str(user.id))
+        url0 = u.avatar_url
+        url = process_avatar(url0)
         await self.bot.say("{}'s Avatar URL : {}".format(user.name, url))
 
 
